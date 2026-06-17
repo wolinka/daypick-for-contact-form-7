@@ -1,0 +1,200 @@
+# Copyright (C) 2026 Wolinka
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: DayPick – Date & Time Picker for Contact Form 7 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/daypick-for-contact-form-7\n"
+"POT-Creation-Date: 2026-06-11\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Wolinka <selam@wolinka.com.tr>\n"
+"X-Domain: daypick-for-contact-form-7\n"
+
+#. Plugin Name of the plugin
+#: daypick-for-contact-form-7.php
+msgid "DayPick – Date & Time Picker for Contact Form 7"
+msgstr ""
+
+#. Description of the plugin
+#: daypick-for-contact-form-7.php
+msgid "Modern, mobile-first date & time picker for Contact Form 7. All features free, all translations free."
+msgstr ""
+
+#. Author of the plugin
+#: daypick-for-contact-form-7.php
+msgid "Wolinka"
+msgstr ""
+
+#: includes/class-daypick.php
+msgid "DayPick requires the Contact Form 7 plugin to be installed and activated."
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Submitted date/time value is malformed"
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Please pick a valid date and time."
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Date is earlier than the allowed minimum"
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Please pick a later date."
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Date is later than the allowed maximum"
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Please pick an earlier date."
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Date falls on a disabled day"
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "This date is not available, please pick another one."
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "Time is outside the allowed range or step"
+msgstr ""
+
+#: includes/class-daypick-validation.php
+msgid "This time is not available, please pick another one."
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "date/time picker (DayPick)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Date/time picker form-tag generator (DayPick)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Generates a form-tag for a date and/or time picker field. The visitor sees the date in their local format; the form always submits an ISO value."
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Field type"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Date/time picker (DayPick)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "This is a required field."
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Field name"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Picker mode"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Date (default)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Time only"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Date and time"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Date range"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Min"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Max"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Disallow past dates (min: today)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Relative values such as max:+90d can be added by editing the tag manually."
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Allowed hours (time and date-time modes)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Range"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Minute step"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Disabled days"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Disable weekends"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Disable specific dates (comma separated)"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "First day of week"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Site default"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Sunday"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Monday"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Displayed format"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "PHP date format for display only; defaults to the site date/time format. Use an underscore instead of a space (e.g. d.m.Y_H:i). The submitted value is always ISO."
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Class attribute"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "The form-tag to be inserted into the form template"
+msgstr ""
+
+#: includes/class-daypick-tag-generator.php
+msgid "Insert Tag"
+msgstr ""
+
+#. translators: %s: mail-tag corresponding to the form-tag
+#: includes/class-daypick-tag-generator.php
+msgid "To use the user input in the email, insert the corresponding mail-tag %s into the email template."
+msgstr ""

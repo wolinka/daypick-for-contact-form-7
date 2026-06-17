@@ -1,0 +1,213 @@
+/*
+ * DayPick – Date & Time Picker for Contact Form 7
+ * CF7 tag generator panel styles (admin only, CF7 form editor).
+ *
+ * CF7's own panel CSS (admin/includes/css/styles.css) positions the legend in
+ * the left gutter and fixes the input widths. To override these rules, the
+ * selectors are written with the `form.tag-generator-panel[data-version="2"] .daypick-taggen`
+ * prefix (higher specificity than CF7). The prefix also prevents leaking into
+ * other CF7 generator panels.
+ */
+
+.daypick-taggen {
+	--daypick-accent: #2271b1;
+	--daypick-border: #c3c4c7;
+	--daypick-muted: #646970;
+	--daypick-bg: #f6f7f7;
+}
+
+/* --- Top description --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-desc {
+	margin: 0 0 4px;
+	padding: 14px 16px;
+	background: #f0f6fc;
+	border-left: 4px solid var(--daypick-accent);
+	border-radius: 0 6px 6px 0;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-desc h3 {
+	margin: 0 0 6px;
+	padding: 0;
+	font-size: 15px;
+	line-height: 1.4;
+	color: #1d2327;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-desc p {
+	margin: 0;
+	color: var(--daypick-muted);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+/* --- Field cards grid --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 24px 40px;
+	align-items: start;
+	margin: 12px 0 28px;
+}
+
+/* Flat / WordPress-native: no card border, heading + thin divider. */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields > fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	line-height: 1.5;
+	max-width: 40rem;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields > fieldset > legend {
+	float: none;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 0 12px;
+	padding: 0 0 8px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #1d2327;
+	border-bottom: 1px solid var(--daypick-border);
+}
+
+/* --- Form controls (overrides CF7's fixed 20rem/8rem widths) --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields input[type="text"],
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields input[type="date"],
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields input[type="number"],
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields select {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	min-height: 34px;
+	margin: 0;
+	vertical-align: middle;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields input[type="text"]:focus,
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields input[type="date"]:focus,
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields input[type="number"]:focus,
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields select:focus {
+	border-color: var(--daypick-accent);
+	box-shadow: 0 0 0 1px var(--daypick-accent);
+	outline: none;
+}
+
+/* In-field labels (above the input) */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields fieldset > label,
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-range label,
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-row label {
+	display: block;
+	margin: 0 0 4px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.4;
+	color: #1d2327;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields fieldset > label + label {
+	margin-top: 12px;
+}
+
+/* Checkbox rows are aligned horizontally */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields label.daypick-check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 10px 0 0;
+	font-weight: 400;
+	font-size: 13px;
+	color: #1d2327;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields label.daypick-check input[type="checkbox"] {
+	margin: 0;
+	flex: 0 0 auto;
+}
+
+/* --- Date range: Min ⇔ Max --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-range {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-range > label {
+	flex: 1 1 0;
+	margin: 0;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-range-sep {
+	flex: 0 0 auto;
+	padding-bottom: 7px;
+	color: var(--daypick-muted);
+	font-size: 16px;
+	line-height: 1;
+}
+
+/* --- Two side-by-side controls (time range + step) --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-row {
+	display: flex;
+	gap: 12px;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-row > label {
+	flex: 1 1 0;
+	margin: 0;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .daypick-row > label.daypick-step {
+	flex: 0 0 120px;
+}
+
+/* --- Help text --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields .description {
+	display: block;
+	margin: 8px 0 0;
+	color: var(--daypick-muted);
+	font-size: 12px;
+	font-style: normal;
+	line-height: 1.5;
+}
+
+/* --- Insert box (footer) --- */
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-insert .flex-container {
+	gap: 10px;
+	align-items: stretch;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-insert input.code {
+	min-height: 38px;
+	padding: 0 12px;
+	font-family: Consolas, Monaco, "Courier New", monospace;
+	font-size: 13px;
+	background: #fff;
+	border: 1px solid var(--daypick-border);
+	border-radius: 4px;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-insert .button-primary {
+	flex: 0 0 auto;
+	height: auto;
+	padding: 6px 20px;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-insert .mail-tag-tip {
+	margin: 12px 0 0;
+	color: var(--daypick-muted);
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-insert .mail-tag-tip strong {
+	color: #1d2327;
+}
+
+/* --- Narrow panel: single column --- */
+@media screen and (max-width: 640px) {
+	form.tag-generator-panel[data-version="2"] .daypick-taggen .daypick-fields {
+		grid-template-columns: 1fr;
+	}
+}

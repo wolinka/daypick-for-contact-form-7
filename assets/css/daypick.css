@@ -1,0 +1,380 @@
+/*
+ * DayPick – Date & Time Picker for Contact Form 7
+ * Field and popup styles. Since the popup is appended to body, the selectors
+ * are anchored to the .flatpickr-calendar root; includes a reset against theme leakage.
+ */
+
+/* Visible (alt) input: flatpickr makes it readonly, and themes may dim readonly fields. */
+.wpcf7 .daypick-alt-input[readonly] {
+	cursor: pointer;
+	opacity: 1;
+}
+
+/* --- Popup isolation: against theme box-model / line-height leakage --- */
+.flatpickr-calendar,
+.flatpickr-calendar * {
+	box-sizing: border-box;
+}
+
+.flatpickr-calendar {
+	font-size: 14px;
+	line-height: 1.4;
+	z-index: 99999;
+}
+
+.flatpickr-calendar input,
+.flatpickr-calendar select {
+	margin: 0;
+	border: 0;
+	box-shadow: none;
+	min-height: 0;
+}
+
+.flatpickr-calendar .numInputWrapper input.numInput {
+	padding: 0;
+	background: transparent;
+}
+
+/* Prevent theme input focus styles from bleeding into the time picker. */
+.flatpickr-calendar .flatpickr-time input:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+/* ============================================================
+ * DayPick calendar theme
+ * All selectors are anchored to the .daypick-calendar root (added via JS onReady);
+ * it does not leak into other flatpickr instances on the site.
+ * The accent color can easily be overridden from the theme via --daypick-accent.
+ * ============================================================ */
+
+.flatpickr-calendar.daypick-calendar {
+	--daypick-accent: #2563eb;
+	--daypick-accent-contrast: #fff;
+	--daypick-accent-soft: rgba( 37, 99, 235, 0.10 );
+	--daypick-text: #1f2430;
+	--daypick-muted: #9097a6;
+	--daypick-line: #eceef3;
+
+	width: auto;
+	padding: 10px 12px 12px;
+	border: 1px solid var( --daypick-line );
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 10px 30px rgba( 17, 24, 39, 0.14 ), 0 2px 6px rgba( 17, 24, 39, 0.06 );
+	color: var( --daypick-text );
+}
+
+/* Hide the pointer triangle for a floating-card look. */
+.flatpickr-calendar.daypick-calendar::before,
+.flatpickr-calendar.daypick-calendar::after {
+	display: none;
+}
+
+/* --- Top header: month / year + arrows ---
+ * flatpickr positions the arrows and the month/year block with absolute
+ * positioning, which causes the vertical alignment to break. We turn the header
+ * into a real flex row and center the arrows and month/year content on the same axis. */
+.flatpickr-calendar.daypick-calendar .flatpickr-months {
+	display: flex;
+	align-items: center;
+	padding-bottom: 6px;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-months .flatpickr-month {
+	height: auto;
+	overflow: visible;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month {
+	position: static;
+	width: 100%;
+	left: auto;
+	height: auto;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 600;
+	/* Keep the year from wrapping to the next line even if the theme changes the input width. */
+	white-space: nowrap;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .cur-month,
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month input.cur-year {
+	font-weight: 600;
+	color: var( --daypick-text );
+}
+
+/* ---- Theme leakage protection (month/year header) ----
+ * Themes apply display:block, width:100%, fixed height/padding/border to
+ * input/select and break the header (the year drops below). We re-impose
+ * flatpickr's inline layout with !important; scoped to the DayPick calendar only. */
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month input.cur-year {
+	box-sizing: border-box !important;
+	display: inline-block !important;
+	width: auto !important;
+	height: auto !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 0 0 0.5ch !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: transparent !important;
+	font-size: inherit !important;
+	font-family: inherit !important;
+	line-height: 1 !important;
+	vertical-align: middle !important;
+	box-shadow: none !important;
+	outline: none !important;
+	float: none !important;
+	text-align: center !important;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .flatpickr-monthDropdown-months {
+	-webkit-appearance: menulist !important;
+	-moz-appearance: menulist !important;
+	appearance: menulist !important;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .numInputWrapper {
+	display: inline-block !important;
+	width: 7ch !important;
+	height: auto !important;
+	float: none !important;
+	vertical-align: middle !important;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month input.cur-year {
+	width: 100% !important;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-monthDropdown-months {
+	font-weight: 600;
+	border-radius: 6px;
+	margin-right: 4px;
+}
+
+/* Spacing between the month dropdown and the year box. */
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .numInputWrapper {
+	margin-left: 8px;
+}
+
+/* ---- Year box and spinner arrows ----
+ * flatpickr draws the arrows as an overlay on the right of the input; without
+ * right padding on the input the digits sit underneath the arrows. The right
+ * padding is kept equal to the arrow width, and the arrows are enlarged for click/touch. */
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .numInputWrapper {
+	width: 9ch !important;
+	border-radius: 8px;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month input.cur-year {
+	/* Right padding = arrow column width; the digits stay clear of the arrows. */
+	padding: 4px 24px 4px 0.5ch !important;
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span {
+	width: 22px;
+	padding: 0;
+	border: 0;
+	border-radius: 6px;
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span:hover {
+	background: var( --daypick-accent-soft );
+}
+
+/* Keep the year arrows always visible; for discoverability. */
+.flatpickr-calendar.daypick-calendar .flatpickr-current-month .numInputWrapper span {
+	opacity: 1;
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span:after {
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span.arrowUp:after {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 0;
+	border-bottom: 6px solid var( --daypick-muted );
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span.arrowDown:after {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 0;
+	border-top: 6px solid var( --daypick-muted );
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span.arrowUp:hover:after {
+	border-bottom-color: var( --daypick-accent );
+}
+
+.flatpickr-calendar.daypick-calendar .numInputWrapper span.arrowDown:hover:after {
+	border-top-color: var( --daypick-accent );
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-prev-month,
+.flatpickr-calendar.daypick-calendar .flatpickr-next-month {
+	/* Sit in the flex row instead of absolute positioning; centered on the same axis as month/year. */
+	position: static;
+	display: flex;
+	flex: 0 0 30px;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	border-radius: 8px;
+	color: var( --daypick-muted );
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-prev-month:hover,
+.flatpickr-calendar.daypick-calendar .flatpickr-next-month:hover {
+	background: var( --daypick-accent-soft );
+	color: var( --daypick-accent );
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-prev-month:hover svg,
+.flatpickr-calendar.daypick-calendar .flatpickr-next-month:hover svg {
+	fill: var( --daypick-accent );
+}
+
+/* --- Weekday headers --- */
+.flatpickr-calendar.daypick-calendar .flatpickr-weekdays {
+	margin-top: 2px;
+}
+
+.flatpickr-calendar.daypick-calendar span.flatpickr-weekday {
+	color: var( --daypick-muted );
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* --- Day cells --- */
+.flatpickr-calendar.daypick-calendar .dayContainer {
+	padding: 2px 0 0;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day {
+	max-width: none;
+	height: 38px;
+	line-height: 38px;
+	margin: 1px 0;
+	border: 0;
+	border-radius: 9px;
+	color: var( --daypick-text );
+	font-weight: 500;
+	transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day:hover,
+.flatpickr-calendar.daypick-calendar .flatpickr-day:focus {
+	background: var( --daypick-accent-soft );
+	color: var( --daypick-accent );
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day.today {
+	border: 0;
+	color: var( --daypick-accent );
+	font-weight: 700;
+	box-shadow: inset 0 0 0 1.5px var( --daypick-accent );
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day.today:hover {
+	background: var( --daypick-accent-soft );
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day.selected,
+.flatpickr-calendar.daypick-calendar .flatpickr-day.selected:hover,
+.flatpickr-calendar.daypick-calendar .flatpickr-day.startRange,
+.flatpickr-calendar.daypick-calendar .flatpickr-day.endRange {
+	background: var( --daypick-accent );
+	border: 0;
+	color: var( --daypick-accent-contrast );
+	font-weight: 600;
+	box-shadow: none;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day.inRange {
+	background: var( --daypick-accent-soft );
+	color: var( --daypick-accent );
+	box-shadow: none;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day.flatpickr-disabled,
+.flatpickr-calendar.daypick-calendar .flatpickr-day.prevMonthDay,
+.flatpickr-calendar.daypick-calendar .flatpickr-day.nextMonthDay {
+	color: #c7cbd4;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-day.flatpickr-disabled:hover {
+	background: transparent;
+	color: #c7cbd4;
+}
+
+/* --- Time picker --- */
+.flatpickr-calendar.daypick-calendar .flatpickr-time {
+	margin-top: 8px;
+	padding: 0 10px;
+	border-top: 1px solid var( --daypick-line );
+	overflow: hidden;
+	border-radius: 0 0 13px 13px;
+}
+
+/* Hour/minute and AM-PM hover: a rounded chip that doesn't touch the edge. */
+.flatpickr-calendar.daypick-calendar .flatpickr-time .numInputWrapper,
+.flatpickr-calendar.daypick-calendar .flatpickr-time .flatpickr-am-pm {
+	border-radius: 9px;
+	transition: background-color 0.12s ease;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-time .numInputWrapper:hover,
+.flatpickr-calendar.daypick-calendar .flatpickr-time .flatpickr-am-pm:hover {
+	background: var( --daypick-accent-soft );
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-time input,
+.flatpickr-calendar.daypick-calendar .flatpickr-time .flatpickr-am-pm {
+	color: var( --daypick-text );
+	font-weight: 600;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-time .flatpickr-time-separator {
+	color: var( --daypick-muted );
+}
+
+/* ---- Theme leakage protection (time row) ----
+ * Same problem as the header: if the theme applies a fixed height/padding/border
+ * or display:block to the input, the hour/minute boxes break. We re-impose
+ * flatpickr's time input values. */
+.flatpickr-calendar.daypick-calendar .flatpickr-time input {
+	box-sizing: border-box !important;
+	height: inherit !important;
+	min-height: 0 !important;
+	line-height: inherit !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	text-align: center !important;
+	-webkit-appearance: textfield !important;
+	-moz-appearance: textfield !important;
+	appearance: textfield !important;
+}
+
+.flatpickr-calendar.daypick-calendar .flatpickr-time .numInputWrapper input {
+	width: 100% !important;
+}
