@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name:       DayPick Date Fields for Contact Form 7
- * Plugin URI:        https://wolinka.com/plugins/daypick-for-contact-form-7/
+ * Plugin URI:        https://github.com/wolinka/daypick-for-contact-form-7
  * Description:       Modern, mobile-first date & time picker for Contact Form 7. All features free, all translations free.
  * Version:           1.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Wolinka
- * Author URI:        https://wolinka.com
+ * Author URI:        https://github.com/wolinka
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       daypick-for-contact-form-7
