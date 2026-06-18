@@ -73,4 +73,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ---
 
-Built by [Özlem Çimen](https://www.linkedin.com/in/ozlemcimen/) — Enterprise WordPress consulting at [Wolinka](https://wolinka.com)
+Built by [Özlem Çimen](https://www.linkedin.com/in/ozlemcimen/) — Enterprise WordPress consulting at [Wolinka](https://wolinka.com.tr)

@@ -73,4 +73,4 @@ Pull request'ler memnuniyetle karşılanır. Büyük değişiklikler için, lüt
 
 ---
 
-[Özlem Çimen](https://www.linkedin.com/in/ozlemcimen/) tarafından geliştirildi — Kurumsal WordPress danışmanlığı: [Wolinka](https://wolinka.com)
+[Özlem Çimen](https://www.linkedin.com/in/ozlemcimen/) tarafından geliştirildi — Kurumsal WordPress danışmanlığı: [Wolinka](https://wolinka.com.tr)
