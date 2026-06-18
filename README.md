@@ -2,7 +2,7 @@
 
 ---
 
-# DayPick – Date & Time Picker for Contact Form 7
+# DayPick Date Fields for Contact Form 7
 
 A lightweight plugin that adds a modern, mobile-friendly date & time picker to Contact Form 7. Built on [flatpickr](https://flatpickr.js.org/), with no license keys, no pro version, and no paid translations.
 

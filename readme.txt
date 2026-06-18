@@ -1,4 +1,4 @@
-=== DayPick – Date & Time Picker for Contact Form 7 ===
+=== DayPick Date Fields for Contact Form 7 ===
 Contributors:      wolinka
 Tags:              contact form 7, date picker, time picker, datetime, booking
 Requires at least: 6.0
