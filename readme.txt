@@ -1,11 +1,11 @@
-=== DayPick Date Fields for Contact Form 7 ===
+=== DayPick: Date Fields for Contact Form 7 ===
 Contributors:      wolinka
 Tags:              contact form 7, date picker, time picker, datetime, booking
 Requires at least: 6.0
 Tested up to:      7.0
 Requires PHP:      7.4
 Requires Plugins:  contact-form-7
-Stable tag:        1.0.0
+Stable tag:        1.0.1
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Yes. In the tag generator, fill in **Default value** and tick *Use this text as 
 3. Tag generator panel in the Contact Form 7 editor.
 
 == Changelog ==
+
+= 1.0.1 =
+* Updated the plugin display name.
 
 = 1.0.0 =
 * Initial release: date, time and datetime modes; min/max limits; disabled weekends/dates; hour range and minute step; automatic locale; visual tag generator; server-side validation; ISO submission values.
